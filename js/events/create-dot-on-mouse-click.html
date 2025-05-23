@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <p>Click anyware to place a dot</p>
+</body>
+
+<style>
+    body {
+        width: 100dvw;
+        height: 100dvh;
+        background-color: aliceblue;
+    }
+
+    .dot {
+        position: absolute;
+        border-radius: 100px;
+        height: 10px;
+        width: 10px;
+        background-color: black;
+    }
+</style>
+
+<script>
+    document.addEventListener("click", (event) => {
+
+        const d = document.createElement("div");
+
+        d.className = "dot";
+        console.log({ x: event.pageX, y: event.pageY })
+        d.style.top = event.pageY - 4 + "px";
+        d.style.left = event.pageX - 4 + "px";
+        document.body.appendChild(d);
+    })
+</script>
+
+</html>
