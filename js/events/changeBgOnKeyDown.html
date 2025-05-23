@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <p>The Current body color is: <code>White</code></p>
+</body>
+
+<style>
+    body {
+        margin: 0 auto;
+    }
+</style>
+
+<script>
+    const q = document.querySelector("p > code");
+    document.addEventListener('keydown', (e) => {
+        if (e.ctrlKey && e.keyCode == "V".charCodeAt(0)) {
+            document.body.style.backgroundColor = "violet";
+            q.textContent = "Violet"
+        }
+    });
+    document.addEventListener('keyup', (e) => {
+        if (e.keyCode == "V".charCodeAt(0)) {
+            document.body.style.backgroundColor = "white";
+            q.textContent = "White"
+        }
+    });
+</script>
+
+</html>

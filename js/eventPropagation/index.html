@@ -1,0 +1,63 @@
+<!-- 
+Basically there are two ways of event propagation
+ 1) Event Capturing - less used
+        Traverse the event from Root node to actual node
+        root -> node1 -> node2
+        if node2 is clicked then the root handler is executed first then it 
+        is propagated down to node2.
+2) Event Bubbling - most used
+        Travese the event from actual node to Root Node
+        node2 -> node1 -> Root node
+        if node2 is clicked then the event handler on node2 is executed then 
+        it is propagated towards the root node.
+        We can always stop this propagation using event.stopPropagation()
+-->
+<!doctype html>
+<html>
+
+<body>
+    <div id="main">
+        <div id="d1">This is D1</div>
+        <div id="d2">This is D2</div>
+        <div id="d3">This is D3</div>
+    </div>
+</body>
+
+<style>
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 2px;
+        text-align: center;
+        padding: 50px;
+    }
+
+    div#main {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        background-color: aquamarine;
+        padding: 10px;
+    }
+
+    div {
+        box-shadow: 1px 1px;
+        border-radius: 10px;
+        background-color: bisque;
+        padding: 10px;
+        cursor: pointer;
+
+    }
+</style>
+
+<script>
+    const mainDiv = document.querySelector("div#main");
+    mainDiv.addEventListener("click", (event) => {
+        console.log(event.target.id)
+        event.stopPropagation()
+    })
+</script>
+
+</html>
