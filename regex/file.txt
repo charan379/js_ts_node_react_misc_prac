@@ -1,0 +1,12 @@
+; comments
+; eawch sec
+
+[larry]
+fullname=Larry Deo
+type=Kindergarden_bully
+website=http://sdfsdfs.csd/sdfdsf/21324
+
+[gargmel]
+fullname=gargmel
+type=evil sorcerer
+outputdir=/home/marjin/enemies/gargmel
