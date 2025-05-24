@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+    <div id="pi">
+        <div id="bar"></div>
+    </div>
+
+    <div id="paras">
+
+    </div>
+
+</body>
+
+<script>
+    document.addEventListener("scroll", (event) => {
+        const bar = document.querySelector("div#pi>div#bar");
+        // console.log({ y: pageYOffset, innerHeight, pageScrollHieght: document.body.scrollHeight })
+        var max = document.body.scrollHeight - innerHeight;
+        var percent = Math.floor((pageYOffset / max) * 100);
+        console.log(percent)
+        if (bar) {
+            bar.style.width = `${percent}%`
+            if (!(percent <= 10)) {
+                bar.textContent = `${percent}%`
+            } else {
+                bar.textContent = ""
+            }
+        }
+    })
+
+    document.addEventListener("DOMContentLoaded", () => {
+
+        const paras = document.querySelector("div#paras");
+        for (let i = 1; i <= 100; i++) {
+            const p = document.createElement("p");
+            p.className = "p-text";
+            p.textContent = `This is the paragraph text : ${i}`;
+            if (paras) {
+                paras.appendChild(p);
+            }
+        }
+    })
+</script>
+
+<style>
+    div#pi {
+        height: 15px;
+        width: 100%;
+        background-color: antiquewhite;
+        position: fixed;
+        top: 0;
+        left: 0;
+        box-shadow: 1px 1px;
+    }
+
+    div#pi>div#bar {
+        height: 100%;
+        width: 0%;
+        background-color: blue;
+        border-radius: 0px 5px 5px 0px;
+        text-align: right;
+        font-size: smaller;
+        padding-right: 5px;
+        color: aliceblue;
+    }
+
+    p.p-text {
+        padding: 10px;
+        background-color: aqua;
+        box-shadow: 1px 1px;
+        border-radius: 10px;
+    }
+
+    div#paras {
+        display: flex;
+        gap: 1px;
+        flex-direction: column;
+    }
+</style>
+
+</html>
