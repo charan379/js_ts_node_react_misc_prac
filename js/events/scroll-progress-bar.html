@@ -19,7 +19,7 @@
         // console.log({ y: pageYOffset, innerHeight, pageScrollHieght: document.body.scrollHeight })
         var max = document.body.scrollHeight - innerHeight;
         var percent = Math.floor((pageYOffset / max) * 100);
-        console.log(percent)
+        // console.log(percent)
         if (bar) {
             bar.style.width = `${percent}%`
             if (!(percent <= 10)) {
