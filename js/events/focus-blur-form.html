@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <form>
+        <label for="name">Name : </label>
+        <input name="name" data-help="Please enter your name !" />
+        <label for="email">Email : </label>
+        <input name="email" data-help="Please enter your email !" />
+        <p id="help"></p>
+    </form>
+</body>
+
+<style>
+    body {
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    p#help {
+        color: red;
+        font-weight: bold;
+    }
+</style>
+
+<script>
+    // on browser tab
+    addEventListener("focus", () => {
+        console.log("window focused")
+    });
+    addEventListener("blur", () => {
+        console.log("window blurred");
+    });
+
+    var formFileds = document.querySelectorAll("form input");
+
+    var help = document.querySelector("p#help");
+    for (let field of formFileds) {
+        field.addEventListener("focus", () => {
+            help.textContent = field.getAttribute("data-help")
+        });
+
+        field.addEventListener("blur", () => {
+            help.textContent = ""
+        });
+    }
+</script>
+
+</html>
