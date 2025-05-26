@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <div class="board">
+
+    </div>
+</body>
+
+<style>
+    .board {
+        border: 2px solid black;
+        width: max-content;
+    }
+
+    .row {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .pic {
+        width: 60px;
+        height: 60px;
+    }
+</style>
+
+<script>
+    function getChessPics() {
+
+        const chessBoard = {};
+
+        const alphas = { 1: "A", 2: "B", 3: "C", 4: "D", 5: "E", 6: "F", 7: "G", 8: "H" };
+
+        for (let i = 1; i <= 8; i++) {
+            let row = [];
+
+            for (let j = 1; j <= 8; j++) {
+                row.push(j + (i * 7) - 8);
+            }
+
+            chessBoard[alphas[9 - i]] = row;
+        }
+
+        return chessBoard;
+    }
+
+    const board = document.getElementsByClassName("board")[0];
+
+    const chessBoard = getChessPics();
+
+    for (let row in chessBoard) {
+        const rowDiv = document.createElement("div");
+        rowDiv.id = row;
+        rowDiv.className = "row"
+
+        for (let col of chessBoard[row]) {
+            const colDiv = document.createElement("div");
+            colDiv.id = `${row}-${col}`
+            colDiv.className = "pic"
+            colDiv.style.background = col % 2 === 0 ? "white" : "black"
+            rowDiv.appendChild(colDiv);
+        }
+
+        board.appendChild(rowDiv);
+    }
+
+</script>
+
+</html>
