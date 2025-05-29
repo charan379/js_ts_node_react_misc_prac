@@ -1,0 +1,27 @@
+Mutable Methods (Modify Original Array)
+These methods change the array itself.
+.push() → Adds elements to the end.
+.pop() → Removes the last element.
+.shift() → Removes the first element.
+.unshift() → Adds elements to the start.
+.splice() → Adds/removes elements at a specific index.
+.sort() → Sorts the array in place.
+.reverse() → Reverses the array in place.
+
+Immutable Methods (Return a New Array)
+These methods do not modify the original array.
+.map() → Applies a function to each element and returns a new array.
+.filter() → Returns a new array with elements that match a condition.
+.slice() → Extracts a portion of the array without modifying it.
+.concat() → Merges arrays into a new array.
+.reduce() → Generates a single output without modifying the array.
+.flat() → Creates a new array by flattening nested elements.
+
+
+Arrays methods will execute Synchronously unless they are part of a async function.
+
+Feature	   |     for...of	                  |  for...in
+----------------------------------------------------------------------------------
+Works on   |    Arrays, Strings, Maps, Sets	  |  Objects, Arrays (keys only)
+Returns	   |    Values	                      |  Keys (Indexes or Property Names)
+Use Case   |	Looping through values	      |  Looping through property keys
