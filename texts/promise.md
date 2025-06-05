@@ -1,4 +1,4 @@
-e concurrency
+concurrency
 The Promise class offers four static methods to facilitate async task concurrency:
 
 Promise.all()

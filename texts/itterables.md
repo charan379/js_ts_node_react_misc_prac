@@ -22,17 +22,28 @@ These methods do not modify the original array.
 .flat() → Creates a new array by flattening nested elements.
 .join() -> Concats the elements of an array into one single string seperated by given character.
 .some() -> Returns true if at least one element in the array passes the test implemented by the provided function.
-Array.every() -> Returns true only if all elements in the array pass the test implemented by the provided function.
-Array.from() -> Creates a new array from an array-like or iterable object. usefull for creating array range function. also used to convert the sets or objects or strings into arrays
-Array.isArray() -> Returns true if the given value is an array.
-Array.at() -> Returns a value at the specified index.
+every() -> Returns true only if all elements in the array pass the test implemented by the provided function.
+from() -> Creates a new array from an array-like or iterable object. usefull for creating array range function. also used to convert the sets or objects or strings into arrays
+isArray() -> Returns true if the given value is an array.
+at() -> Returns a value at the specified index.
 .flat() -> Returns a new array with all sub-array elements concatenated into it recursively up to the specified depth.
 .flatMap() -> Returns a new array formed by applying a given callback function to each element of the array,
+.forEach() -> forEach does not return a new array; it returns undefined.
+
+```js
+let numbers = [1, 2, 3];
+
+numbers.forEach((number, index, arr) => {
+  arr[index] = number * 2; // Modifying the array element
+});
+
+console.log(numbers); // Output: [2, 4, 6] (The array has been mutated)
+```
 
 Arrays methods will execute Synchronously unless they are part of a async function.
 
-Feature	   |     for...of	                  |  for...in
-----------------------------------------------------------------------------------
-Works on   |    Arrays, Strings, Maps, Sets	  |  Objects, Arrays (keys only)
-Returns	   |    Values	                      |  Keys (Indexes or Property Names)
-Use Case   |	Looping through values	      |  Looping through property keys
+## Feature | for...of | for...in
+
+Works on | Arrays, Strings, Maps, Sets | Objects, Arrays (keys only)
+Returns | Values | Keys (Indexes or Property Names)
+Use Case | Looping through values | Looping through property keys
