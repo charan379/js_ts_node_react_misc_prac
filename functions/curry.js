@@ -1,3 +1,6 @@
+// Currying turns a function with multiple arguments into a
+// chain of functions, each taking one argument at a time.
+
 function multiply(a) {
   return function inner(b) {
     return a * b;
