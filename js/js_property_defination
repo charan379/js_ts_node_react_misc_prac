@@ -1,0 +1,76 @@
+# JavaScript Property Defination
+
+```js
+var obj = {};
+Object.defineProperty(obj, 'foo', {
+    value: 1,
+    writable: false, // Makes the property read-only. Won't allow reassignment's
+    configurable: false, // Prevents deleting and Re-defining even using the `defineProperty` not just for value even for other configurations
+    enumerable: false, //
+});
+```
+
+## Configurable vs Writable
+
+- `configurable: false` means you cannot delete the property or change its attributes (like making it writable or enumerable). However, if `writable: true`, you can still change
+  the value of the property.
+
+## Configurable and Writable example
+
+```js
+const obj = {};
+Object.defineProperty(obj, 'x', {
+    value: 42,
+    writable: true, // Can change value
+    configurable: true, // Can delete or reconfigure
+    enumerable: true,
+});
+obj.x = 100; // OK
+delete obj.x; // OK
+```
+
+## Object.seal
+
+- Prevents adding or removing properties to an object but allows modification of existing properties if they are writable.
+- Existing properties remain `configurable: false` but `writtable can be true or false`.
+
+```js
+const obj = { a: 1 };
+Object.seal(obj);
+obj.a = 2; // OK (writable)
+delete obj.a; // Fails (configurable: false)
+obj.b = 3; // Fails (cannot add new properties)
+console.log(Object.getOwnPropertyDescriptor(obj, 'a'));
+// { value: 2, writable: true, enumerable: true, configurable: false }
+```
+
+## Object.freeze
+
+- Prevents adding, removing or modifying properties of an object. All properties become read-only and non-configurable.
+- All properties are set to `writable: false` and `configurable: false`.
+
+```js
+const obj = { a: 1 };
+Object.freeze(obj);
+obj.a = 2; // Fails (writable: false)
+delete obj.a; // Fails (configurable: false)
+obj.b = 3; // Fails (cannot add new properties)
+console.log(Object.getOwnPropertyDescriptor(obj, 'a'));
+// { value: 1, writable: false, enumerable: true, configurable: false }
+```
+
+## Object.preventExtensions
+
+- Prevents new properties from being added to an object but allows existing properties to be modified or deleted.
+- Existing properties can still be deleted or modified (unless sealed or frozen), but no new properties can be added.
+
+```js
+const obj = { a: 1 };
+Object.preventExtensions(obj);
+
+obj.b = 2; // Fails (cannot add new properties)
+delete obj.a; // OK (can delete existing properties)
+obj.a = 3; // OK (can modify existing properties if writable)
+
+console.log(Object.isExtensible(obj)); // false
+```
