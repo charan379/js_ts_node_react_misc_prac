@@ -15,3 +15,5 @@
 [Most Important JS Interview Topic : Immutability and Objects](https://leetcode.com/discuss/post/3747949/most-important-js-interview-topic-immuta-sjm5/#thisid1)
 
 [Animations.dev](https://animations.dev/)
+
+[Patterns.dev](https://www.patterns.dev/)
