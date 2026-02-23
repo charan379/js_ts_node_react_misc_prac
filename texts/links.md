@@ -19,3 +19,5 @@
 [Patterns.dev](https://www.patterns.dev/)
 
 [Use Hooks React](https://www.usehooks.io/)
+
+[React WebAssembly](https://developersvoice.com/blog/frontend/react-and-webassembly-wasm/)
