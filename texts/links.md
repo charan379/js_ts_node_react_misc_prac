@@ -20,4 +20,6 @@
 
 [Use Hooks React](https://www.usehooks.io/)
 
+[The Rise of Islands Architecture: Astro 4.0 vs Next.js 18](https://markaicode.com/rise-islands-architecture-astro-4-vs-nextjs-18/)
+
 [React WebAssembly](https://developersvoice.com/blog/frontend/react-and-webassembly-wasm/)
